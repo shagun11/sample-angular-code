@@ -1,7 +1,8 @@
 angular.module('DemoDirectives')
 
-//A directive for the click-outside event
-.directive('scalClickoutside', function($document, $timeout) {
+//A directive for the click-outside event.
+//It uses callback to call click outside events for the pop up.
+.directive('Clickoutside', function($document, $timeout) {
   return {
     restrict: 'A',
     link: function(scope, element, attr) {
@@ -17,7 +18,7 @@ angular.module('DemoDirectives')
               if(newValue) {
                 $timeout(function() {
                   clickOutsideEvt = $document.one('click', function() {
-                    scope.$apply(attr.scalClickoutside);
+                    scope.$apply(attr.Clickoutside);
                   });
                 }, 100);
               } else if( clickOutsideEvt ) {
@@ -26,7 +27,7 @@ angular.module('DemoDirectives')
               }
             }
           });
-
+  //to Stop bubbling of events.
       element.bind('click', function(e) {
         e.stopPropagation();
       });
@@ -35,13 +36,13 @@ angular.module('DemoDirectives')
 })
 
 //Custom time-picker
-.directive('scalTimepicker', function() {
+.directive('Timepicker', function() {
   return {
     restrict: 'A',
     require: 'ngModel',
     link: function(scope, element, attr, ngModel) {
       var selectNode,
-          timePickerConfig = scope.$eval(attr.scalTimepicker) || {},
+          timePickerConfig = scope.$eval(attr.Timepicker) || {},
           select2Config = scope.$eval(attr.select2Config) || {};
       element.timepicker(timePickerConfig);
     }
@@ -49,6 +50,7 @@ angular.module('DemoDirectives')
 })
 
 //Custom angular popover using bootstrap's popovers
+/* It gets the date and format it to display in the popup in the expected format */
 .directive('DemoPopover', function($http, $compile, $timeout) {
   return {
     restrict: 'A',
@@ -81,6 +83,7 @@ angular.module('DemoDirectives')
         return defaultEvent;
       },
 
+	/* It gets the events for the popup */
       getAddEvents = function() {
         var addEvents = [];
         angular.forEach($scope.eventNameMap, function(value, key) {
@@ -94,10 +97,10 @@ angular.module('DemoDirectives')
       };
 
       $scope.eventNameMap = {
-        'VACATION': 'Time Off',
-        'SHIFT': 'Shift',
-        'SHIFT-ADJUSTMENT': 'Shift Adjustment',
-        'SWAP-REQUESTED': 'Shift Trade'
+        'EVENT1': 'shift1',
+        'EVENT2': 'Shift2',
+        'EVENT3': 'Shift3',
+        'EVENT4': 'Shift4'
       };
 
       $scope.addEvents = getAddEvents();

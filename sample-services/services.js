@@ -336,11 +336,11 @@ angular.module('DemoServices')
 
       if(tagType && tagValue) {
         lstTagType = tagType.toLowerCase().split(' ');
-        lstTagType.unshift('scal');
+        lstTagType.unshift('l');
         typeCss = lstTagType.join('-');
 
         lstTagValue = tagValue.toLowerCase().split(' ');
-        lstTagValue.unshift('scal');
+        lstTagValue.unshift('l');
         valueCss = lstTagValue.join('-');
         return (typeCss + ' ' + typeCss + '-' + valueCss);
       }
