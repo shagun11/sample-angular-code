@@ -1,7 +1,5 @@
-/**
- * Created by ralph on 18/3/14.
- */
-angular.module('smartcalServices')
+
+angular.module('DemoServices')
 
 .factory('AppPreferences', function() {
   var //
