@@ -69,7 +69,7 @@ angular.module('DemoDirectives')
           'startDate': defaultStartDate,
           'endDate': defaultEndDate,
           'tags': [{
-            type: 'PERSON',
+            type: 'MyTag',
             value: $scope.data.userId
           }]
         };
@@ -97,10 +97,10 @@ angular.module('DemoDirectives')
       };
 
       $scope.eventNameMap = {
-        'EVENT1': 'shift1',
-        'EVENT2': 'Shift2',
-        'EVENT3': 'Shift3',
-        'EVENT4': 'Shift4'
+        'EVENT1': 'type1',
+        'EVENT2': 'type2',
+        'EVENT3': 'type3',
+        'EVENT4': 'type4'
       };
 
       $scope.addEvents = getAddEvents();

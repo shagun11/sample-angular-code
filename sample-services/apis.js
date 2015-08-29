@@ -23,24 +23,6 @@ angular.module('DemoServices')
   };
 })
 
-//Resource objects for Reports page
-.factory('ReportsApis', function($resource) {
-  return {
-    getReports: function() {
-      return $resource('/api/v1/reports/',{});
-    }
-  };
-})
-
-//Resource objects for preferences
-.factory('PreferencesApis', function($resource) {
-  return {
-    getAppPreference: function() {
-      return $resource('/api/v0/preferences', {});
-    }
-  };
-})
-
 //Resource objects for User managemaent
 .factory('UserApis', function($resource) {
   return {
@@ -55,10 +37,6 @@ angular.module('DemoServices')
     singleUserDetail: function() {
       return $resource('/api/v0/people/:peopleId/', {},
           {'update': {method: 'PUT'}});
-    },
-
-    userEmergencyContact: function() {
-      return $resource('/api/emergency-contact/:emergencyContactId/', {});
     }
   };
 })

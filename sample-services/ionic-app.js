@@ -94,6 +94,3 @@ angular.module('DemoAppIonic', [
     $urlRouterProvider.otherwise('/login');
   });
 
-
-
-
